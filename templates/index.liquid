@@ -1,0 +1,16 @@
+{% comment %} <h1>Anything</h1>
+<img class="img-thumbnail rounded circle w-25" src="{{ 'PuppyImage.jpg' | asset_url }}"/> {% endcomment %}
+ 
+ <h2>{{collections['frontpage'].title}}</h2>
+ {% for product in collections['frontpage'].products %}
+<div class="d-flex flex-column">
+    <div class="d-flex flex-row">
+        <a href="{{ product.url }}">
+            <img class="img-thumbnail rounded w-50 " src="{{ product.featured_image | image_url }}"/>
+            <h3>{{product.title}}</h3>
+            <p>{{product.price | money }}</p>
+        </a>
+    </div>
+</div>
+  {{- product.title | link_to: product.url }}
+{% endfor %} 
